@@ -4,6 +4,7 @@ metadata:
   name: {{ include "nodeapp.fullname" . }}
   labels:
     {{- include "nodeapp.labels" . | nindent 4 }}
+  namespace: test
 spec:
   type: {{ .Values.service.type }}
   ports:

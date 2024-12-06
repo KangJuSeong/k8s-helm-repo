@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: nodeapp-deploy2
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: nodeapp
+            component: nodeapp2
+    template:
+        metadata:
+            labels:
+                app: nodeapp
+                component: nodeapp2
+        spec:
+            containers:
+            - name: nodeapp2
+              image: kangjuseong/nodeapp-git:1.4.0
+              ports:
+              - containerPort: 8080
